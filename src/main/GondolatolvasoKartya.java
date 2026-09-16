@@ -2,7 +2,7 @@ package main;
 
 public class GondolatolvasoKartya {
 
-    static String[] pakli = new String[20];
+    static String[] pakli = new String[22];
     
     public static void main(String[] args) {
         for (int i = 0; i < 3; i++) {
