@@ -5,6 +5,7 @@ public class GondolatolvasoKartya {
     static String[] pakli = new String[22];
     
     public static void main(String[] args) {
+        feltoltes();
         for (int i = 0; i < 3; i++) {
             kirajzol(); // 1tömb
             valasztas(); // Scanner
@@ -18,6 +19,11 @@ public class GondolatolvasoKartya {
     private static void feltoltes(){
         String[] szinek = {"P", "T", "Z", "M"};
         String[] ertekek = {"Ász", "Kir", "Fel", "X", "IX", "VIII"};
+        
+        int db =0;
+        for (String szin : szinek) {
+            
+        }
     }
 
     private static void kirajzol() {
