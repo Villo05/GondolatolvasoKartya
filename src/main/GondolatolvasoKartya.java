@@ -6,6 +6,7 @@ public class GondolatolvasoKartya {
 
     static String[] pakli = new String[22];
     static Scanner sc = new Scanner(System.in);
+    static int oszlop;
     
     public static void main(String[] args) {
         feltoltes();
@@ -46,10 +47,9 @@ public class GondolatolvasoKartya {
 
     private static void valasztas() {
         
-
         System.out.println("Válassz egy kártyát");
         System.out.print("Melyik oszlopban van a választott kártya? (1-3): ");
-        int oszlop = sc.nextInt();
+        oszlop = sc.nextInt();
 
         while (oszlop < 1 || oszlop > 3) {
             System.out.print("Hibás választás! (1-3): ");
@@ -58,7 +58,35 @@ public class GondolatolvasoKartya {
     }
 
     private static void keveres() {
-        
+        String[] ujPakli = new String[22];
+
+        switch (oszlop) {
+            case 1:
+                for (int i = 1; i <= 7; i++) {
+                    ujPakli[i] = pakli[20 - (i - 1) * 3];
+                    ujPakli[i + 7] = pakli[19 - (i - 1) * 3];
+                    ujPakli[i + 14] = pakli[21 - (i - 1) * 3];
+                }
+                break;
+
+            case 2:
+                for (int i = 1; i <= 7; i++) {
+                    ujPakli[i] = pakli[19 - (i - 1) * 3];
+                    ujPakli[i + 7] = pakli[20 - (i - 1) * 3];
+                    ujPakli[i + 14] = pakli[21 - (i - 1) * 3];
+                }
+                break;
+
+            case 3:
+                for (int i = 1; i <= 7; i++) {
+                    ujPakli[i] = pakli[19 - (i - 1) * 3];
+                    ujPakli[i + 7] = pakli[21 - (i - 1) * 3];
+                    ujPakli[i + 14] = pakli[20 - (i - 1) * 3];
+                }
+                break;
+        }
+
+        pakli = ujPakli;
     }
 
     private static void ezVolt() {
