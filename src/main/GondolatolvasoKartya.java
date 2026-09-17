@@ -1,13 +1,16 @@
 package main;
 
+import java.util.Scanner;
+
 public class GondolatolvasoKartya {
 
     static String[] pakli = new String[22];
+    static Scanner sc = new Scanner(System.in);
     
     public static void main(String[] args) {
         feltoltes();
         for (int i = 0; i < 3; i++) {
-            kirajzol(); // 1tömb
+            kirajzol(); // 1 tömb
             valasztas(); // Scanner
             keveres(); // középre
         }
@@ -22,16 +25,36 @@ public class GondolatolvasoKartya {
         
         int db =0;
         for (String szin : szinek) {
-            
+            for (String ertek : ertekek) {
+                String lap = szin + "_" + ertek;
+                if(db < 21){
+                    pakli[++db] = lap;
+                }
+            }
         }
     }
 
     private static void kirajzol() {
-       
+        System.out.printf("%-15s %-15s %-15s%n", "  1.", "  2.", "  3.");
+        for (int i = 1; i <= 21; i += 3) {
+            System.out.printf("%-15s %-15s %-15s%n",
+                    pakli[i],
+                    pakli[i + 1],
+                    pakli[i + 2]);
+        }
     }
 
     private static void valasztas() {
         
+
+        System.out.println("Válassz egy kártyát");
+        System.out.print("Melyik oszlopban van a választott kártya? (1-3): ");
+        int oszlop = sc.nextInt();
+
+        while (oszlop < 1 || oszlop > 3) {
+            System.out.print("Hibás választás! (1-3): ");
+            oszlop = sc.nextInt();
+        }
     }
 
     private static void keveres() {
@@ -39,9 +62,6 @@ public class GondolatolvasoKartya {
     }
 
     private static void ezVolt() {
-                
+        System.out.println("A kiválasztott kártya: " + pakli[11]);
     }
-    
-    
-    
 }
